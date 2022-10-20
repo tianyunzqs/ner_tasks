@@ -1,0 +1,150 @@
+bilstm_crf.py
+
+Model: "model_1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+char_input (InputLayer)         (None, None)         0
+__________________________________________________________________________________________________
+seg_input (InputLayer)          (None, None)         0
+__________________________________________________________________________________________________
+embedding_1 (Embedding)         (None, None, 128)    387968      char_input[0][0]
+__________________________________________________________________________________________________
+embedding_2 (Embedding)         (None, None, 128)    512         seg_input[0][0]
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, None, 256)    0           embedding_1[0][0]
+                                                                 embedding_2[0][0]
+__________________________________________________________________________________________________
+bidirectional_1 (Bidirectional) (None, None, 256)    394240      concatenate_1[0][0]
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, None, 256)    0           bidirectional_1[0][0]
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, None, 128)    32896       dropout_1[0][0]
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, None, 7)      903         dense_1[0][0]
+__________________________________________________________________________________________________
+conditional_random_field_1 (Con (None, None, 7)      49          dense_2[0][0]
+==================================================================================================
+Total params: 816,568
+Trainable params: 816,568
+Non-trainable params: 0
+__________________________________________________________________________________________________
+
+326/326 [==============================] - 259s 795ms/step - loss: 6.6307 - sparse_accuracy: 0.8889
+valid:  f1: 0.61222, precision: 0.64823, recall: 0.57999, best f1: 0.61222
+
+Epoch 2/30
+326/326 [==============================] - 258s 791ms/step - loss: 1.9384 - sparse_accuracy: 0.8718
+valid:  f1: 0.71647, precision: 0.77932, recall: 0.66300, best f1: 0.71647
+
+Epoch 3/30
+326/326 [==============================] - 227s 697ms/step - loss: 1.4387 - sparse_accuracy: 0.8707
+valid:  f1: 0.73489, precision: 0.78102, recall: 0.69390, best f1: 0.73489
+
+Epoch 4/30
+326/326 [==============================] - 227s 696ms/step - loss: 1.1688 - sparse_accuracy: 0.8636
+valid:  f1: 0.74834, precision: 0.79482, recall: 0.70699, best f1: 0.74834
+
+Epoch 5/30
+326/326 [==============================] - 224s 688ms/step - loss: 0.9899 - sparse_accuracy: 0.8587
+valid:  f1: 0.75348, precision: 0.79523, recall: 0.71589, best f1: 0.75348
+
+Epoch 6/30
+326/326 [==============================] - 210s 644ms/step - loss: 0.8810 - sparse_accuracy: 0.8604
+valid:  f1: 0.75971, precision: 0.79815, recall: 0.72480, best f1: 0.75971
+
+Epoch 7/30
+326/326 [==============================] - 215s 658ms/step - loss: 0.7366 - sparse_accuracy: 0.8569
+valid:  f1: 0.76670, precision: 0.80501, recall: 0.73187, best f1: 0.76670
+
+Epoch 8/30
+326/326 [==============================] - 218s 668ms/step - loss: 0.6253 - sparse_accuracy: 0.8519
+valid:  f1: 0.76555, precision: 0.78615, recall: 0.74601, best f1: 0.76670
+
+Epoch 9/30
+326/326 [==============================] - 222s 682ms/step - loss: 0.5461 - sparse_accuracy: 0.8518
+valid:  f1: 0.77093, precision: 0.81603, recall: 0.73056, best f1: 0.77093
+
+Epoch 10/30
+326/326 [==============================] - 248s 761ms/step - loss: 0.4584 - sparse_accuracy: 0.8496
+valid:  f1: 0.76908, precision: 0.80679, recall: 0.73475, best f1: 0.77093
+
+Epoch 11/30
+326/326 [==============================] - 210s 644ms/step - loss: 0.3897 - sparse_accuracy: 0.8502
+valid:  f1: 0.76475, precision: 0.78768, recall: 0.74313, best f1: 0.77093
+
+Epoch 12/30
+326/326 [==============================] - 212s 650ms/step - loss: 0.3258 - sparse_accuracy: 0.8546
+valid:  f1: 0.77118, precision: 0.81529, recall: 0.73161, best f1: 0.77118
+
+Epoch 13/30
+326/326 [==============================] - 211s 646ms/step - loss: 0.3154 - sparse_accuracy: 0.8566
+valid:  f1: 0.77122, precision: 0.82130, recall: 0.72689, best f1: 0.77122
+
+Epoch 14/30
+326/326 [==============================] - 210s 645ms/step - loss: 0.2672 - sparse_accuracy: 0.8546
+valid:  f1: 0.76952, precision: 0.79786, recall: 0.74313, best f1: 0.77122
+
+Epoch 15/30
+326/326 [==============================] - 211s 648ms/step - loss: 0.2131 - sparse_accuracy: 0.8549
+valid:  f1: 0.76776, precision: 0.80419, recall: 0.73449, best f1: 0.77122
+
+Epoch 16/30
+326/326 [==============================] - 214s 658ms/step - loss: 0.1858 - sparse_accuracy: 0.8556
+valid:  f1: 0.76845, precision: 0.81016, recall: 0.73082, best f1: 0.77122
+
+Epoch 17/30
+326/326 [==============================] - 216s 662ms/step - loss: 0.1591 - sparse_accuracy: 0.8635
+valid:  f1: 0.76542, precision: 0.79722, recall: 0.73606, best f1: 0.77122
+
+Epoch 18/30
+326/326 [==============================] - 217s 665ms/step - loss: 0.1630 - sparse_accuracy: 0.8552
+valid:  f1: 0.76414, precision: 0.79263, recall: 0.73763, best f1: 0.77122
+
+Epoch 19/30
+326/326 [==============================] - 211s 647ms/step - loss: 0.1534 - sparse_accuracy: 0.8528
+valid:  f1: 0.76992, precision: 0.80239, recall: 0.73998, best f1: 0.77122
+
+Epoch 20/30
+326/326 [==============================] - 211s 649ms/step - loss: 0.1410 - sparse_accuracy: 0.8621
+valid:  f1: 0.76510, precision: 0.79259, recall: 0.73946, best f1: 0.77122
+
+Epoch 21/30
+326/326 [==============================] - 210s 644ms/step - loss: 0.1074 - sparse_accuracy: 0.8562
+valid:  f1: 0.77268, precision: 0.81863, recall: 0.73161, best f1: 0.77268
+
+Epoch 22/30
+326/326 [==============================] - 211s 647ms/step - loss: 0.0865 - sparse_accuracy: 0.8583
+valid:  f1: 0.77476, precision: 0.80611, recall: 0.74574, best f1: 0.77476
+
+Epoch 23/30
+326/326 [==============================] - 213s 654ms/step - loss: 0.0762 - sparse_accuracy: 0.8648
+valid:  f1: 0.76430, precision: 0.79418, recall: 0.73658, best f1: 0.77476
+
+Epoch 24/30
+326/326 [==============================] - 210s 645ms/step - loss: 0.1017 - sparse_accuracy: 0.8605
+valid:  f1: 0.77104, precision: 0.81627, recall: 0.73056, best f1: 0.77476
+
+Epoch 25/30
+326/326 [==============================] - 212s 650ms/step - loss: 0.1080 - sparse_accuracy: 0.8404
+valid:  f1: 0.77487, precision: 0.81768, recall: 0.73632, best f1: 0.77487
+
+Epoch 26/30
+326/326 [==============================] - 211s 646ms/step - loss: 0.0877 - sparse_accuracy: 0.8462
+valid:  f1: 0.77335, precision: 0.81720, recall: 0.73396, best f1: 0.77487
+
+Epoch 27/30
+326/326 [==============================] - 210s 643ms/step - loss: 0.0638 - sparse_accuracy: 0.8467
+valid:  f1: 0.77418, precision: 0.81972, recall: 0.73344, best f1: 0.77487
+
+Epoch 28/30
+326/326 [==============================] - 213s 652ms/step - loss: 0.0834 - sparse_accuracy: 0.8516
+valid:  f1: 0.77634, precision: 0.82624, recall: 0.73213, best f1: 0.77634
+
+Epoch 29/30
+326/326 [==============================] - 209s 640ms/step - loss: 0.1123 - sparse_accuracy: 0.8374
+valid:  f1: 0.76952, precision: 0.80244, recall: 0.73920, best f1: 0.77634
+
+Epoch 30/30
+326/326 [==============================] - 211s 648ms/step - loss: 0.0705 - sparse_accuracy: 0.8423
+valid:  f1: 0.77233, precision: 0.82824, recall: 0.72349, best f1: 0.77634
